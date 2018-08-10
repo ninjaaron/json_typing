@@ -72,7 +72,7 @@ functions = _types.FunctionType, (
     },
     lambda d: _types.FunctionType(
         code_obj[1][1](d['code']),
-        importlib.import_module(d['module']).__dict__,
+        vars(importlib.import_module(d['module'])),
         argdefs=tuple(d['defaults']) if d['defaults'] else None)
 )
 
